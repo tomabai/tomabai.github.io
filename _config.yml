@@ -12,15 +12,15 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Bar Magnezi [0xMrMagnezi]"
+title                    : "Tom Abai's Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Bar Magnezi"
-description              : "Malware Analysis Professional"
+name                     : "Tom Abai"
+description              : "Supply chain researcher and malware lover"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -102,24 +102,27 @@ analytics:
 
 # Site Author
 author:
-  name             : "Bar Magnezi"
+  name             : "Tom Abai"
   avatar           : /assets/images/logo.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Malware Analysis Professional"
+  bio              : "Security Researcher"
   location         : "Israel"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:barmagnezi@gmail.com"
+      url: "mailto:tom.abai12@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/bar-magnezi-ab0987217/"
+      url: "https://www.linkedin.com/in/tom-abai-a4862915a/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/0xMrMagnezi"
+      url: "https://github.com/tomabai"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/abai_tom"
 
 # Site Footer
 footer:

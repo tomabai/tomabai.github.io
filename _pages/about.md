@@ -31,7 +31,7 @@ permalink: /about/
     color: #0f0;
     display: inline-block;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: pre-wrap; /* Ensures white spaces and newlines are preserved */
   }
 
   .input-line {
@@ -118,7 +118,7 @@ permalink: /about/
       const resultElement = document.createElement('div');
       outputElement.appendChild(resultElement);
       placeholderElement.style.display = 'none';
-      typeText(result.replace(/\n/g, '<br>'), resultElement, function() {
+      typeText(result, resultElement, function() {
         inputElement.value = '';
         outputElement.scrollTop = outputElement.scrollHeight; // Scroll to the bottom
       });

@@ -12,6 +12,15 @@ permalink: /about/
     padding: 10px;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
+  }
+
+  .placeholder {
+    color: #0f0;
+    opacity: 0.5;
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }
 
   .prompt {
@@ -19,7 +28,7 @@ permalink: /about/
   }
 
   .output {
-    color: #fff;
+    color: #0f0;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
@@ -40,6 +49,7 @@ permalink: /about/
 </style>
 
 <div class="terminal">
+  <div class="placeholder">Please enter a command from the following: whoami, about, spell, help</div>
   <div class="output" id="terminal-output"></div>
   <div class="input-line">
     <span class="prompt">$</span>
@@ -50,10 +60,11 @@ permalink: /about/
 <script>
   const outputElement = document.getElementById('terminal-output');
   const inputElement = document.getElementById('terminal-input');
+  const placeholderElement = document.querySelector('.placeholder');
 
   const commands = {
     whoami: "Tom Abai, \nI'm a Security Researchr. \nSpecialize in: \n* Malware Analysis \n* supply chain attacks \n* vulnerability management",
-    about: "This blog, Infestum Dissecto, focuses on malware analysis and supply chain attacks with a touch of magic. Dive deep into the world of cybersecurity with unique insights and detailed dissections.",
+    about: "This blog, Infestum Dissecto, \nfocuses on malware analysis \nand supply chain attacks with a touch of magic. \nDive deep into the world of cybersecurity \nwith unique insights and detailed dissections.",
     spell: function() {
       const spells = [
         "Expelliarmus - Disarms your malware defenses",
@@ -85,14 +96,36 @@ permalink: /about/
     }
   }
 
+  function typeText(text, outputElement, callback) {
+    let index = 0;
+    function type() {
+      if (index < text.length) {
+        outputElement.innerHTML += text[index] === '\n' ? '<br>' : text[index];
+        index++;
+        setTimeout(type, 50); // Typing speed
+      } else if (callback) {
+        callback();
+      }
+    }
+    type();
+  }
+
   inputElement.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       const command = inputElement.value.trim();
       outputElement.innerHTML += `<div><span class="prompt">$</span> ${command}</div>`;
       const result = handleCommand(command);
-      outputElement.innerHTML += `<div>${result.replace(/\n/g, '<br>')}</div>`;
-      inputElement.value = '';
-      outputElement.scrollTop = outputElement.scrollHeight; // Scroll to the bottom
+      const resultElement = document.createElement('div');
+      outputElement.appendChild(resultElement);
+      placeholderElement.style.display = 'none';
+      typeText(result.replace(/\n/g, '<br>'), resultElement, function() {
+        inputElement.value = '';
+        outputElement.scrollTop = outputElement.scrollHeight; // Scroll to the bottom
+      });
     }
+  });
+
+  inputElement.addEventListener('input', function() {
+    placeholderElement.style.display = inputElement.value ? 'none' : 'block';
   });
 </script>

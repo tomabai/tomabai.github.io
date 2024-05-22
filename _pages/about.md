@@ -63,8 +63,8 @@ permalink: /about/
   const placeholderElement = document.querySelector('.placeholder');
 
   const commands = {
-    whoami: "Tom Abai, \nI'm a Security Researcher. \nSpecialize in: \n* Malware Analysis \n* supply chain attacks \n* vulnerability management",
-    about: "This blog, Infestum Dissecto, \nfocuses on malware analysis \nand supply chain attacks with a touch of magic. \nDive deep into the world of cybersecurity \nwith unique insights and detailed dissections.",
+    whoami: "Tom Abai, \nI'm a Security Researcher. \nSpecialize in: \n* Malware Analysis \n* Supply Chain Attacks \n* Vulnerability Management",
+    about: "This blog, Infestum Dissecto, focuses on malware analysis with a touch of magic. Dive deep into the world of cybersecurity with unique insights and detailed dissections.",
     spell: function() {
       const spells = [
         "Expelliarmus - Disarms your malware defenses",
@@ -100,7 +100,11 @@ permalink: /about/
     let index = 0;
     function type() {
       if (index < text.length) {
-        outputElement.innerHTML += text[index] === '\n' ? '<br>' : text[index];
+        if (text[index] === '\n') {
+          outputElement.innerHTML += '<br>';
+        } else {
+          outputElement.innerHTML += text[index];
+        }
         index++;
         setTimeout(type, 50); // Typing speed
       } else if (callback) {

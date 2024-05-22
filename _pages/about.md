@@ -63,7 +63,7 @@ permalink: /about/
   const placeholderElement = document.querySelector('.placeholder');
 
   const commands = {
-    whoami: "Tom Abai, \nI'm a Security Researchr. \nSpecialize in: \n* Malware Analysis \n* supply chain attacks \n* vulnerability management",
+    whoami: "Tom Abai, \nI'm a Security Researcher. \nSpecialize in: \n* Malware Analysis \n* supply chain attacks \n* vulnerability management",
     about: "This blog, Infestum Dissecto, \nfocuses on malware analysis \nand supply chain attacks with a touch of magic. \nDive deep into the world of cybersecurity \nwith unique insights and detailed dissections.",
     spell: function() {
       const spells = [
